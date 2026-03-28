@@ -1,0 +1,21 @@
+[project]
+name = "agent-memory"
+version = "0.1.0-alpha"
+description = "Agent Memory System — Memory hierarchy with cost-aware routing"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "faiss-cpu>=1.7",
+]
+
+[project.optional-dependencies]
+embedding = ["sentence-transformers>=2.2"]
+openai-embed = ["openai>=1.0"]
+dev = ["pytest>=7.0", "pytest-asyncio"]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["agent_memory*"]

@@ -1,0 +1,34 @@
+{
+  "id": "agent-memory",
+  "name": "Agent Memory System",
+  "description": "Multi-tier memory system with response caching, tool result caching, cost-aware routing, and cloud sync. Caches LLM responses at the proxy level — same question = instant $0 response.",
+  "version": "0.1.0",
+  "kind": "context-engine",
+  "enabledByDefault": true,
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "db_path": {
+        "type": "string",
+        "description": "Path to the SQLite cache database",
+        "default": "~/.openclaw/agent-memory/cache.db"
+      },
+      "embedding_provider": {
+        "type": "string",
+        "enum": ["hash", "local", "openai"],
+        "description": "Embedding provider for semantic search",
+        "default": "hash"
+      },
+      "budget_usd": {
+        "type": "number",
+        "description": "Daily budget limit in USD",
+        "default": 10.0
+      },
+      "debug": {
+        "type": "boolean",
+        "description": "Enable debug logging",
+        "default": false
+      }
+    }
+  }
+}
